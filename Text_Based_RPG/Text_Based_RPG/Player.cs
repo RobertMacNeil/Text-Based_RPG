@@ -8,7 +8,7 @@ namespace Text_Based_RPG
 {
     class Player : GameCharacter
     {
-        Player()
+        public Player()
         {
 
         }

@@ -48,7 +48,10 @@ namespace Text_Based_RPG
                 {
                     lives = lives - 1;
                     health = 0;
-                    ////////////////////// left off here
+                    if (lives == 0)
+                    {
+
+                    }
                 }
             }
         }

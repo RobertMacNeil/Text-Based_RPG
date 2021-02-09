@@ -8,5 +8,9 @@ namespace Text_Based_RPG
 {
     class Enemy : GameCharacter
     {
+        public Enemy()
+        {
+
+        }
     }
 }

@@ -8,5 +8,15 @@ namespace Text_Based_RPG
 {
     class GameManager
     {
+        public GameManager()
+        {
+            
+        }
+
+        public void StartGame()
+        {
+            Player player = new Player();
+
+        }
     }
 }

@@ -10,6 +10,13 @@ namespace Text_Based_RPG
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Robert's text based RPG");
+            Console.WriteLine("Press any key to continue...");
+
+            Console.ReadKey(true);
+
+            GameManager gameManager = new GameManager();
+            gameManager.StartGame();
         }
     }
 }
