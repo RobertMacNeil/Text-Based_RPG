@@ -15,6 +15,7 @@ namespace Text_Based_RPG
 
             Console.ReadKey(true);
 
+            //initilize gamemanager and run the start of the game
             GameManager gameManager = new GameManager();
             gameManager.StartGame();
         }

@@ -9,12 +9,15 @@ namespace Text_Based_RPG
     abstract class GameCharacter
     {
         // stats
-        string name;
-        int health;
-        int maxHealth;
-        int shield;
-        int maxShield;
-        int lives;
+        protected string name;
+        protected char token; // maybe use as alive state for characters (if dead changes to "X")
+        protected int health;
+        protected int maxHealth;
+        protected int shield;
+        protected int maxShield;
+        protected int lives;
+        protected int x;
+        protected int y;
 
         public void ShowStats()
         {
@@ -23,10 +26,12 @@ namespace Text_Based_RPG
             Console.WriteLine("Shield: " + shield);
         }
 
+        //main combat call
         public void TakeDamage(int damage)
         {
             //debug
             Console.WriteLine(name + " is about to take " + damage + " damage.");
+            //checks if in range
             if (damage < 0)
             {
                 damage = 0;
@@ -34,28 +39,37 @@ namespace Text_Based_RPG
                 Console.WriteLine("ERROR: Must be a positive value");
                 return;
             }
+            //deals damage
             shield = shield - damage;
+            //checks if excess damage remains
             if (shield < 0)
             {
                 Console.WriteLine(name + " took " + damage + " damage.");
                 Console.WriteLine(name + "'s shield is broken!");
+                //calculates excess damage
                 damage = shield * -1;
+                //sets shield to broken(0)
                 shield = 0;
+                //deals damage to health
                 health = health - damage;
                 Console.WriteLine(name + " lost " + damage + " health.");
-
+                //checks for death
                 if (health <= 0)
                 {
                     lives = lives - 1;
                     health = 0;
+                    //checks if final life loss
                     if (lives == 0)
                     {
-
+                        Console.WriteLine(name + " has died");
+                        token = 'X';
                     }
+                    //gotta finish this (if still has lives reset)
                 }
             }
         }
 
+        //recovers health //will probably have an item to use this
         public void Heal(int heal)
         {
             //debug
@@ -75,6 +89,7 @@ namespace Text_Based_RPG
             }
         }
 
+        //repairs shield //will probably have an item to use this
         public void RegenerateShield(int regen)
         {
             //debug
@@ -92,6 +107,13 @@ namespace Text_Based_RPG
                 shield = maxShield;
                 Console.WriteLine(name + " has regenerated full shielding");
             }
+        }
+
+        //place characters onto the screen
+        public void Draw()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(token);
         }
     }
 }
