@@ -9,7 +9,8 @@ namespace Text_Based_RPG
     // inherits gamecharacter
     class Player : GameCharacter
     {
-        public Player()
+        private Map currentMap;
+        public Player(Map CurrentMap)
         {
             //constructor sets base variables
             name = "Player";
@@ -20,7 +21,68 @@ namespace Text_Based_RPG
             shield = 100;
             lives = 3;
             x = 1;
-            y = 2;
+            y = 1;
+            currentMap = CurrentMap;
+        }
+
+        public void Update()
+        {
+            ConsoleKeyInfo pressed = Console.ReadKey(true);
+            ConsoleKey input = pressed.Key;
+            switch (input)
+            {
+                case ConsoleKey.UpArrow:
+                    if (currentMap.MoveCheck(x,y-1))
+                    {
+                        MoveUp();
+                    }
+                    break;
+                case ConsoleKey.W:
+                    if (currentMap.MoveCheck(x, y - 1))
+                    {
+                        MoveUp();
+                    }
+                    break;
+                case ConsoleKey.DownArrow:
+                    if (currentMap.MoveCheck(x, y + 1))
+                    {
+                        MoveDown();
+                    }
+                    break;
+                case ConsoleKey.S:
+                    if (currentMap.MoveCheck(x, y + 1))
+                    {
+                        MoveDown();
+                    }
+                    break;
+                case ConsoleKey.LeftArrow:
+                    if (currentMap.MoveCheck(x - 1, y))
+                    {
+                        MoveLeft();
+                    }
+                    break;
+                case ConsoleKey.A:
+                    if (currentMap.MoveCheck(x - 1, y))
+                    {
+                        MoveLeft();
+                    }
+                    break;
+                case ConsoleKey.RightArrow:
+                    if (currentMap.MoveCheck(x + 1, y))
+                    {
+                        MoveRight();
+                    }
+                    break;
+                case ConsoleKey.D:
+                    if (currentMap.MoveCheck(x + 1, y))
+                    {
+                        MoveRight();
+                    }
+                    break;
+                default:
+                    Update();
+                    break;
+            }
         }
     }
 }

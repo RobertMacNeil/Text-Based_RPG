@@ -10,6 +10,8 @@ namespace Text_Based_RPG
     {
         static void Main(string[] args)
         {
+            Console.CursorVisible = false;
+
             Console.WriteLine("Welcome to Robert's text based RPG");
             Console.WriteLine("Press any key to continue...");
 

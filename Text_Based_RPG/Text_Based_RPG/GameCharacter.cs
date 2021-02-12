@@ -115,5 +115,24 @@ namespace Text_Based_RPG
             Console.SetCursorPosition(x, y);
             Console.Write(token);
         }
+
+        //Movement
+        protected void MoveUp()
+        {
+            y = y - 1;
+        }
+        protected void MoveDown()
+        {
+            y = y + 1;
+        }
+        protected void MoveLeft()
+        {
+            x = x - 1;
+        }
+        protected void MoveRight()
+        {
+            x = x + 1;
+        }
+
     }
 }
