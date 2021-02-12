@@ -16,8 +16,8 @@ namespace Text_Based_RPG
         protected int shield;
         protected int maxShield;
         protected int lives;
-        protected int x;
-        protected int y;
+        public int x;
+        public int y;
 
         public void ShowStats()
         {

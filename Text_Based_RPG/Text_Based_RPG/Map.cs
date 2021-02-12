@@ -16,10 +16,6 @@ namespace Text_Based_RPG
         private int rows;
         private int columns;
 
-        public Map()
-        {
-        }
-
         //method to load in txt files as maps
         public void MapLoader(string filePath)
         {

@@ -38,24 +38,28 @@ namespace Text_Based_RPG
                     {
                         MoveUp();
                     }
+                    else Update();
                     break;
                 case 2:
                     if (currentMap.MoveCheck(x, y + 1))
                     {
                         MoveDown();
                     }
+                    else Update();
                     break;
                 case 3:
                     if (currentMap.MoveCheck(x - 1, y))
                     {
                         MoveLeft();
                     }
+                    else Update();
                     break;
                 case 4:
                     if (currentMap.MoveCheck(x + 1, y))
                     {
                         MoveRight();
                     }
+                    else Update();
                     break;
                 default:
                     Update();
