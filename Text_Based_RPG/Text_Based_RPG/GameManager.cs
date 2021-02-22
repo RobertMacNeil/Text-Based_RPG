@@ -19,6 +19,10 @@ namespace Text_Based_RPG
             Player player = new Player(map);
             Enemy enemy = new Enemy(map);
 
+            //init Player Enemy knowledge of eachother
+            player.enemyReference(enemy);
+            enemy.playerReference(player);
+
             //the gameloop
             while (true) // remember to set up with player lives
             {
