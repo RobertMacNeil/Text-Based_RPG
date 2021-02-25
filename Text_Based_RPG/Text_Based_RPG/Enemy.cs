@@ -12,6 +12,7 @@ namespace Text_Based_RPG
         Random rnd = new Random();
         int moveDirection;
 
+        private Player player;
         private Map currentMap;
         public Enemy(Map CurrentMap)
         {
@@ -26,6 +27,11 @@ namespace Text_Based_RPG
             x = 26;
             y = 13;
             currentMap = CurrentMap;
+        }
+
+        public void PlayerReference(Player player)
+        {
+            player = this.player;
         }
 
         public void Update()

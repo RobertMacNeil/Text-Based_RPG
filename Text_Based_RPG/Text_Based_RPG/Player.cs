@@ -9,6 +9,7 @@ namespace Text_Based_RPG
     // inherits gamecharacter
     class Player : GameCharacter
     {
+        private Enemy enemy;
         private Map currentMap;
         public Player(Map CurrentMap)
         {
@@ -23,6 +24,11 @@ namespace Text_Based_RPG
             x = 1;
             y = 1;
             currentMap = CurrentMap;
+        }
+
+        public void EnemyReference(Enemy enemy)
+        {
+            enemy = this.enemy;
         }
 
         public void Update()
