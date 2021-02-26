@@ -15,13 +15,14 @@ namespace Text_Based_RPG
             //-granting easier access to things such as potential levels
             Map map = new Map();
             map.MapLoader("Map.txt");
-            
-            Player player = new Player(map);
-            Enemy enemy = new Enemy(map);
 
-            //init Player Enemy knowledge of eachother
-            player.EnemyReference(enemy);
-            enemy.PlayerReference(player);
+            Hud hud = new Hud();
+            
+            Player player = new Player();
+            Enemy[] enemies = new Enemy[1];
+            enemies[0] = new Enemy();
+
+            //Map learns player and Enemy location
 
             //the gameloop
             while (true) // remember to set up with player lives
@@ -29,11 +30,18 @@ namespace Text_Based_RPG
                 Console.Clear();
 
                 map.Draw();
-                enemy.Draw();
+                //hud.Draw();
+                foreach (Enemy enemy in enemies)
+                {
+                    enemy.Draw();
+                }
                 player.Draw(); // drawn last
 
-                player.Update(); // updated first takes input
-                enemy.Update();
+                player.Update(map); // updated first takes input
+                foreach (Enemy enemy in enemies)
+                {
+                    enemy.Update(map);
+                }
             }
 
         }

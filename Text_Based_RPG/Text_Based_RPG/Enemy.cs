@@ -12,9 +12,7 @@ namespace Text_Based_RPG
         Random rnd = new Random();
         int moveDirection;
 
-        private Player player;
-        private Map currentMap;
-        public Enemy(Map CurrentMap)
+        public Enemy()
         {
             //constructor sets base variables
             name = "Enemy";
@@ -26,15 +24,9 @@ namespace Text_Based_RPG
             lives = 1;
             x = 26;
             y = 13;
-            currentMap = CurrentMap;
         }
 
-        public void PlayerReference(Player player)
-        {
-            player = this.player;
-        }
-
-        public void Update()
+        public void Update(Map currentMap)
         {
             moveDirection = rnd.Next(1, 5);
             switch (moveDirection)
@@ -44,31 +36,31 @@ namespace Text_Based_RPG
                     {
                         MoveUp();
                     }
-                    else Update();
+                    else Update(currentMap);
                     break;
                 case 2:
                     if (currentMap.MoveCheck(x, y + 1))
                     {
                         MoveDown();
                     }
-                    else Update();
+                    else Update(currentMap);
                     break;
                 case 3:
                     if (currentMap.MoveCheck(x - 1, y))
                     {
                         MoveLeft();
                     }
-                    else Update();
+                    else Update(currentMap);
                     break;
                 case 4:
                     if (currentMap.MoveCheck(x + 1, y))
                     {
                         MoveRight();
                     }
-                    else Update();
+                    else Update(currentMap);
                     break;
                 default:
-                    Update();
+                    Update(currentMap);
                     break;
             }
         }

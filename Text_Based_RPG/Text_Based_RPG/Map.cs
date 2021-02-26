@@ -10,7 +10,7 @@ namespace Text_Based_RPG
     class Map
     {
         //holds map array
-        private string[,] map;
+        private char[,] map;
 
         //variables held to get boundries
         private int rows;
@@ -28,14 +28,14 @@ namespace Text_Based_RPG
             columns = firstLine.Length;
 
             //filling map array
-            map = new string[rows, columns];
+            map = new char[rows, columns];
             for (int y = 0; y < rows; y++)
             {
                 string line = lines[y];
                 for (int x = 0; x < columns; x++)
                 {
                     char currentChar = line[x];
-                    map[y, x] = currentChar.ToString();
+                    map[y, x] = currentChar;
                 }
             }
         }
@@ -53,7 +53,7 @@ namespace Text_Based_RPG
             }
             Console.WriteLine();
         }
-
+        
         public bool MoveCheck(int x, int y)
         {
             //Check bounds first
@@ -63,7 +63,7 @@ namespace Text_Based_RPG
             }
 
             //check if grid is walkable
-            return map[y, x] == " ";
+            return map[y, x] == ' ';
         }
     }
 }

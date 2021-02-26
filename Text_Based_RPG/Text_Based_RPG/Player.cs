@@ -9,9 +9,7 @@ namespace Text_Based_RPG
     // inherits gamecharacter
     class Player : GameCharacter
     {
-        private Enemy enemy;
-        private Map currentMap;
-        public Player(Map CurrentMap)
+        public Player()
         {
             //constructor sets base variables
             name = "Player";
@@ -23,15 +21,9 @@ namespace Text_Based_RPG
             lives = 3;
             x = 1;
             y = 1;
-            currentMap = CurrentMap;
         }
 
-        public void EnemyReference(Enemy enemy)
-        {
-            enemy = this.enemy;
-        }
-
-        public void Update()
+        public void Update(Map currentMap)
         {
             ConsoleKeyInfo pressed = Console.ReadKey(true);
             ConsoleKey input = pressed.Key;
@@ -86,7 +78,7 @@ namespace Text_Based_RPG
                     }
                     break;
                 default:
-                    Update();
+                    Update(currentMap);
                     break;
             }
         }
