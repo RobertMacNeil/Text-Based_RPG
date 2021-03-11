@@ -19,8 +19,7 @@ namespace Text_Based_RPG
             Hud hud = new Hud();
             
             Player player = new Player();
-            Enemy[] enemies = new Enemy[1];
-            enemies[0] = new Enemy();
+            Enemy enemy = new Enemy();
 
             //Map learns player and Enemy location
 
@@ -31,19 +30,12 @@ namespace Text_Based_RPG
 
                 map.Draw();
                 //hud.Draw();
-                foreach (Enemy enemy in enemies)
-                {
-                    enemy.Draw();
-                }
+                enemy.Draw();
                 player.Draw(); // drawn last
 
                 player.Update(map); // updated first takes input
-                foreach (Enemy enemy in enemies)
-                {
-                    enemy.Update(map);
-                }
+                enemy.Update(map);
             }
-
         }
     }
 }
