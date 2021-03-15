@@ -47,6 +47,7 @@ namespace TextBasedRPG
             {
                 for (int y = 0; y < map.GetLength(1); y++)
                 {
+                    Console.SetCursorPosition(y, x); // reversed since x only changes after each loop
                     Console.Write(map[x, y]);
                 }
                 Console.WriteLine();

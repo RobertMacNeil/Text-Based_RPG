@@ -8,7 +8,7 @@ namespace TextBasedRPG
 {
     abstract class GameObject
     {
-        protected string name;
+        protected char avatar;
         protected int x;
         protected int y;
     }

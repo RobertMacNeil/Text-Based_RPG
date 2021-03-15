@@ -16,9 +16,12 @@ namespace TextBasedRPG
 
             Player player = new Player(map);
 
-            while(true) // make a conditional for this.
+            while(player.Lives >= 1)
             {
                 map.Draw();
+                player.Draw();
+
+                Console.ReadKey(true);
             }
         }
     }
