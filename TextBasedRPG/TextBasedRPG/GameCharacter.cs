@@ -13,11 +13,22 @@ namespace TextBasedRPG
         protected int maxSheild;
         protected int shield;
         protected int lives;
+        protected int strength;
 
         public int Lives
         {
             get => lives;
         }
+        public int X
+        {
+            get => x;
+        }
+
+        public int Y
+        {
+            get => y;
+        }
+
 
         public void Draw()
         {
