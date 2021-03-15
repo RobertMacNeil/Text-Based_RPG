@@ -21,7 +21,7 @@ namespace TextBasedRPG
                 map.Draw();
                 player.Draw();
 
-                Console.ReadKey(true);
+                player.Update();
             }
         }
     }
