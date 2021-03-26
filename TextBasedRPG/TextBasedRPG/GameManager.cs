@@ -14,11 +14,17 @@ namespace TextBasedRPG
             Map map = new Map();
             map.MapLoader("Map.txt");
 
-            Player player = new Player(map);
+            Player player = new Player();
+            Enemy enemy = new Enemy(1);
 
-            while(true) // make a conditional for this.
+            while(player.Lives >= 1)
             {
                 map.Draw();
+                enemy.Draw();
+                player.Draw();
+
+                player.Update(map,enemy);
+                enemy.Update(map, player);
             }
         }
     }
