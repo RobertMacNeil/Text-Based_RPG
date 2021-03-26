@@ -26,41 +26,59 @@ namespace Text_Based_RPG
             y = 13;
         }
 
-        public void Update(Map currentMap)
+        public void Update(Map currentMap, Player player)
         {
+            if (alive == false) return;
+
             moveDirection = rnd.Next(1, 5);
             switch (moveDirection)
             {
                 case 1:
-                    if (currentMap.MoveCheck(x, y - 1))
+                    if ((player.x == x) && (player.y == y - 1) && player.Alive)
+                    {
+                        player.TakeDamage(5);
+                    }
+                    else if (currentMap.MoveCheck(x, y - 1))
                     {
                         MoveUp();
                     }
-                    else Update(currentMap);
+                    else Update(currentMap, player);
                     break;
                 case 2:
-                    if (currentMap.MoveCheck(x, y + 1))
+                    if ((player.x == x) && (player.y == y + 1) && player.Alive)
+                    {
+                        player.TakeDamage(5);
+                    }
+                    else if (currentMap.MoveCheck(x, y + 1))
                     {
                         MoveDown();
                     }
-                    else Update(currentMap);
+                    else Update(currentMap, player);
                     break;
                 case 3:
-                    if (currentMap.MoveCheck(x - 1, y))
+                    if ((player.x == x - 1) && (player.y == y) && player.Alive)
+                    {
+                        player.TakeDamage(5);
+                    }
+                    else if (currentMap.MoveCheck(x - 1, y))
                     {
                         MoveLeft();
                     }
-                    else Update(currentMap);
+                    else Update(currentMap, player);
                     break;
                 case 4:
-                    if (currentMap.MoveCheck(x + 1, y))
+                    if ((player.x == x + 1) && (player.y == y) && player.Alive)
+                    {
+                        player.TakeDamage(5);
+                    }
+                    else if (currentMap.MoveCheck(x + 1, y))
                     {
                         MoveRight();
                     }
-                    else Update(currentMap);
+                    else Update(currentMap, player);
                     break;
                 default:
-                    Update(currentMap);
+                    Update(currentMap, player);
                     break;
             }
         }

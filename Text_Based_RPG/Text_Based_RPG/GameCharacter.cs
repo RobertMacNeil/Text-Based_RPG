@@ -9,8 +9,9 @@ namespace Text_Based_RPG
     abstract class GameCharacter
     {
         // stats
+        protected bool alive = true;
         protected string name;
-        protected char token; // maybe use as alive state for characters (if dead changes to "X")
+        protected char token;
         protected int health;
         protected int maxHealth;
         protected int shield;
@@ -18,6 +19,11 @@ namespace Text_Based_RPG
         protected int lives;
         public int x;
         public int y;
+
+        public bool Alive
+        {
+            get => alive;
+        }
 
         public void ShowStats()
         {
@@ -63,8 +69,15 @@ namespace Text_Based_RPG
                     {
                         Console.WriteLine(name + " has died");
                         token = 'X';
+                        alive = false;
                     }
-                    //gotta finish this (if still has lives reset)
+                    //if still has lives reset)
+                    else
+                    {
+                        Console.WriteLine(name + " has " + lives + " extra lives left");
+                        health = maxHealth;
+                        shield = maxShield;
+                    }
                 }
             }
         }

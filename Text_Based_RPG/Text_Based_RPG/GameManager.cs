@@ -26,15 +26,13 @@ namespace Text_Based_RPG
             //the gameloop
             while (true) // remember to set up with player lives
             {
-                Console.Clear();
-
                 map.Draw();
                 //hud.Draw();
                 enemy.Draw();
                 player.Draw(); // drawn last
 
-                player.Update(map); // updated first takes input
-                enemy.Update(map);
+                player.Update(map, enemy); // updated first takes input
+                enemy.Update(map, player);
             }
         }
     }

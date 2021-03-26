@@ -8,5 +8,6 @@ namespace TextBasedRPG
 {
     abstract class GameCharacter : GameObject
     {
+
     }
 }

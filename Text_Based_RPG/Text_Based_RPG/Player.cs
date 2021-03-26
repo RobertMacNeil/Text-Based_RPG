@@ -23,62 +23,65 @@ namespace Text_Based_RPG
             y = 1;
         }
 
-        public void Update(Map currentMap)
+        public void Update(Map currentMap, Enemy enemy)
         {
-            ConsoleKeyInfo pressed = Console.ReadKey(true);
-            ConsoleKey input = pressed.Key;
-            switch (input)
+            if (alive == false) return;
+
+            ConsoleKeyInfo input;
+
+            input = Console.ReadKey(true);
+            while (Console.KeyAvailable)
+            input = Console.ReadKey(true);
+
+
+            switch (input.Key)
             {
-                case ConsoleKey.UpArrow:
-                    if (currentMap.MoveCheck(x,y-1))
-                    {
-                        MoveUp();
-                    }
-                    break;
                 case ConsoleKey.W:
-                    if (currentMap.MoveCheck(x, y - 1))
+                case ConsoleKey.UpArrow:
+                    if((enemy.x == x) && (enemy.y == y-1) && enemy.Alive)
+                    {
+                        enemy.TakeDamage(5);
+                    }
+                    else if (currentMap.MoveCheck(x,y-1))
                     {
                         MoveUp();
-                    }
-                    break;
-                case ConsoleKey.DownArrow:
-                    if (currentMap.MoveCheck(x, y + 1))
-                    {
-                        MoveDown();
                     }
                     break;
                 case ConsoleKey.S:
-                    if (currentMap.MoveCheck(x, y + 1))
+                case ConsoleKey.DownArrow:
+                    if ((enemy.x == x) && (enemy.y == y + 1) && enemy.Alive)
+                    {
+                        enemy.TakeDamage(5);
+                    }
+                    else if(currentMap.MoveCheck(x, y + 1))
                     {
                         MoveDown();
                     }
                     break;
-                case ConsoleKey.LeftArrow:
-                    if (currentMap.MoveCheck(x - 1, y))
-                    {
-                        MoveLeft();
-                    }
-                    break;
                 case ConsoleKey.A:
-                    if (currentMap.MoveCheck(x - 1, y))
+                case ConsoleKey.LeftArrow:
+                    if ((enemy.x == x - 1) && (enemy.y == y) && enemy.Alive)
+                    {
+                        enemy.TakeDamage(5);
+                    }
+                    else if (currentMap.MoveCheck(x - 1, y))
                     {
                         MoveLeft();
-                    }
-                    break;
-                case ConsoleKey.RightArrow:
-                    if (currentMap.MoveCheck(x + 1, y))
-                    {
-                        MoveRight();
                     }
                     break;
                 case ConsoleKey.D:
-                    if (currentMap.MoveCheck(x + 1, y))
+                case ConsoleKey.RightArrow:
+                    if ((enemy.x == x + 1) && (enemy.y == y) && enemy.Alive)
+                    {
+                        enemy.TakeDamage(5);
+                    }
+                    else if (currentMap.MoveCheck(x + 1, y))
                     {
                         MoveRight();
                     }
                     break;
                 default:
-                    Update(currentMap);
+                    Update(currentMap, enemy);
                     break;
             }
         }

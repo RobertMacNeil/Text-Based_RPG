@@ -43,6 +43,8 @@ namespace Text_Based_RPG
         // method to display map
         public void Draw()
         {
+            Console.SetCursorPosition(0, 0);
+
             for (int x = 0; x < map.GetLength(0); x++)
             {
                 for (int y = 0; y < map.GetLength(1); y++)

@@ -28,6 +28,7 @@ namespace Text_Based_RPG
             Console.WriteLine("Press any key to continue...");
 
             Console.ReadKey(true);
+            Console.Clear();
 
             //initilize gamemanager and run the start of the game
             GameManager gameManager = new GameManager();
