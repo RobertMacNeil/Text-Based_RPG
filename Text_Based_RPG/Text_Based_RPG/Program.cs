@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 /*
  * notes: 
  * program inits gamemanager and runs the startgame
- * gamemanager's startgame inits game pieces (map player enemy(ies)) loads map and holds gameloop (clear->draw->update)
- * map has the maploader and draw method as well as holds method to detect contact (boundaries) 
- * given to players in construct so they have access to boundaries
- * gamecharacter holds any similar values game characters would have contains draw method of characters
+ * gamemanager's startgame inits game pieces (map player enemy(ies)) loads map and holds gameloop (draw->update)
+ * map has the maploader and draw method as well as holds method to detect contact (boundaries)
+ * 
+ * gamecharacter holds any similar values and methods game characters would have
  * player and enemy inherit gamecharacter and have their own movements
- * ***Need to find way to connect player-enemy so that they can collide***
- * ***Have not found a way to do so while practicing OOP***
  */
 
 namespace Text_Based_RPG

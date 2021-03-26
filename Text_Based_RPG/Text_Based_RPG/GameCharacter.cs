@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace Text_Based_RPG
 {
-    abstract class GameCharacter
+    abstract class GameCharacter : GameObject
     {
         // stats
         protected bool alive = true;
-        protected string name;
-        protected char token;
         protected int health;
         protected int maxHealth;
         protected int shield;
         protected int maxShield;
         protected int lives;
-        public int x;
-        public int y;
 
         public bool Alive
         {
@@ -120,13 +116,6 @@ namespace Text_Based_RPG
                 shield = maxShield;
                 Console.WriteLine(name + " has regenerated full shielding");
             }
-        }
-
-        //place characters onto the screen
-        public void Draw()
-        {
-            Console.SetCursorPosition(x, y);
-            Console.Write(token);
         }
 
         //Movement
